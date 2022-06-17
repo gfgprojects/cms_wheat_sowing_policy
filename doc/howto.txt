@@ -1,6 +1,12 @@
-Please perform the operation described in the repast_installation.txt before this file.
+Please, if Repast is not installed in your machine,  perform the operation described in the repast_installation.txt before this file.
 
-We also assume the cms_wheat code was downloaded in your system and yout terminal is presently in the cms_wheat folder.
+We assume the cms_wheat code is in in your system. Therefore, you have the following directory tree:
+cms_wheat
+  doc
+  run
+  rs_model
+
+Move your terminal present working directory in the cms_wheat/run folder.
 
 By performing the following instruction you should be able to run the model and replicate the article results.
 
