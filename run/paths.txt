@@ -1,0 +1,5 @@
+/Users/giulioni/abm_java_libraries/repast
+2.9.1
+/Users/giulioni/Documents/models/cms_wheat_losers_winners_whole/rs_model/cms_wheat
+/Users/giulioni/abm_java_libraries
+ 

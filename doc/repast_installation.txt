@@ -1,0 +1,70 @@
+These installation instructions are for terminal users. 
+Commands listed in this document can be normally performed in a terminal on Linux and mac systems. 
+In case of difficulties with the command line interface, or any other problem, please contact the developers.  
+
+A Java Development Kit has to be installed on your system. 
+Please follow the instructions on repast web site
+https://repast.github.io
+to gather information on how to setup your system properly to run repast. 
+
+Once the right JDK is in your system, you have to download all the packages which make up the repast symphony library. 
+
+This can be easily done by following the instruction on the website. However, this implies the installation of eclipse.
+
+The alternative way of using repast proposed in this document avoids the use of eclipse, so that we need to download only the repast java packages.
+
+This can be done from the Repast website
+https://repast.github.io
+
+In particular we have to find out the url of the repast update site.
+Normally, the url is written in the download section.
+
+At the time of writing the update site url is:
+https://repocafe.cels.anl.gov/repos/repast
+
+The latest version of repast in in the plugin folder you can find at the update site url 
+(look for this folder among the many ones listed. As you can see, several folders contains previous version of repast)
+
+You can download all the jars by using the wget command (you have to install it if not included in your system) with the recursion option -r.
+
+To install repast, make the following steps.
+
+Suppose, for example, your home directory is /home/computer. 
+Create a temporary directory:
+mkdir repast_packages
+then move to this directory:
+cd repast_packages
+and download the files from the Repast update site:
+
+wget -r -l1 --no-parent -nd --no-check-certificate https://repocafe.cels.anl.gov/repos/repast/plugins/
+
+Some minutes are needed to complete the download.
+
+Create a new directory where to install the repast. In your home directory type
+mkdir repast
+this creates the repast directory, but feel free to name this folder at your convenience.
+
+Move all the jar files from the temporary directory repast_packages to the repast folder
+
+mv repast_packaes/*.jar repast
+
+Now, we have to extract all the jars in the repast folder. Enter the repast folder
+cd repast
+type the following command
+
+ls *.jar|awk -F'.jar' '{print "unzip "$0" -d "$1}'|sh
+
+Now you can remove all the jar files in the repast folder and you can remove the temporary directory.
+
+The result is a series of directory inside the \verb+repast+ directory.
+
+Test your installation typing
+
+java -cp "/home/computer/repast/repast.simphony.runtime_<version>/lib/*:/home/computer/repast/repast.simphony.runtime_<version>/bin" repast.simphony.runtime.RepastMain
+
+where you have to replace \verb+<version>+ with the version identification number (for example \verb+2.3.0+).
+
+After a while, the repast window should pop up.
+
+
+
