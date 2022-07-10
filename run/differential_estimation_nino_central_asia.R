@@ -27,35 +27,28 @@ outputdir<-"output"
 #(end code from t_cost_comparison.R)
 
 
-original.input.production.data<-read.csv("../rs_model/cms_wheat/data/data_2013_nino/producers_fao_1993_2016_2013_nino.csv")
-original.input.demand.data<-read.csv("../rs_model/cms_wheat/data/data_2013_nino/buyers_Misc_tuned_1993_2016_2013_nino.csv")
+original.input.data<-read.csv("../rs_model/cms_wheat/data/data_2013_nino/producers_fao_1993_2016_2013_nino.csv")
 
-#system("cp ../rs_model/cms_wheat/data/data_2013_nina/buyers_Misc_tuned_1993_2016_2013_nina.csv ../rs_model/cms_wheat/data/buyers_Misc.csv")
+system("cp ../rs_model/cms_wheat/data/data_2013_nino/buyers_Misc_tuned_1993_2016_2013_nino.csv ../rs_model/cms_wheat/data/buyers_Misc.csv")
 
 #system("date |mutt -s 'differential evolution iniziato' g.giulioni@gmail.com,edidigiu@gmail.com")
 #system("date |mutt -s 'differential evolution iniziato' g.giulioni@gmail.com")
-source("differential_estimation_nino_functions.R")
+source("differential_estimation_central_asia_nino_and_nina_functions.R")
 #source("differential02_dati.R")
 
 #par1 = production change in 
 #par2 = production change in
 
 minpar01<--0.05
-minpar02<--0.05
-minpar03<--0.05
-minpar04<--0.05
 
 maxpar01<-0.05
-maxpar02<-0.05
-maxpar03<-0.05
-maxpar04<-0.05
 
-minimi<-c(minpar01,minpar02,minpar03,minpar04)
+minimi<-c(minpar01)
 
-massimi<-c(maxpar01,maxpar02,maxpar03,maxpar04)
+massimi<-c(maxpar01)
 
-if(F){
-soluzione<-DEoptim(valutazione,minimi,massimi,control = DEoptim.control(NP=40,itermax=5),fnMap=arrotondamento)
+if(T){
+soluzione<-DEoptim(valutazione,minimi,massimi,control = DEoptim.control(NP=20,itermax=5),fnMap=arrotondamento)
 #NP=5
 
 system("date > stima.txt")
@@ -65,8 +58,8 @@ write("estimated parameters","stima.txt",append=T)
 #}
 write(soluzione$optim$bestmem[1],"stima.txt",append=T)
 write(soluzione$optim$bestmem[2],"stima.txt",append=T)
-write(soluzione$optim$bestmem[3],"stima.txt",append=T)
-write(soluzione$optim$bestmem[4],"stima.txt",append=T)
+#write(soluzione$optim$bestmem[3],"stima.txt",append=T)
+#write(soluzione$optim$bestmem[4],"stima.txt",append=T)
 #write(soluzione$optim$bestmem[5],"stima.txt",append=T)
 write("best value","stima.txt",append=T)
 write(soluzione$optim$bestval,"stima.txt",append=T)
