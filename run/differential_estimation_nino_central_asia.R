@@ -48,7 +48,8 @@ minimi<-c(minpar01)
 massimi<-c(maxpar01)
 
 if(T){
-soluzione<-DEoptim(valutazione,minimi,massimi,control = DEoptim.control(NP=20,itermax=5),fnMap=arrotondamento)
+#soluzione<-DEoptim(valutazione,minimi,massimi,control = DEoptim.control(NP=20,itermax=5),fnMap=arrotondamento)
+soluzione<-DEoptim(valutazione,minimi,massimi,control = DEoptim.control(NP=20,itermax=5))
 #NP=5
 
 system("date > stima.txt")
