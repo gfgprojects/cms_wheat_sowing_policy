@@ -32,7 +32,7 @@ source("r_aggregate_import_dynamics.R")
 imp.dyn.cum1<-imp.dyn.cum
 imp.dyn.expenditures.cum1<-imp.dyn.expenditures.cum
 
-outputdir<-"../output/output_nino"
+outputdir<-"../output"
 source("r_source_for_comparison.R")
 imp.dyn2<-imp.dyn
 source("r_sim_prices.R")
@@ -42,17 +42,7 @@ source("r_aggregate_import_dynamics.R")
 imp.dyn.cum2<-imp.dyn.cum
 imp.dyn.expenditures.cum2<-imp.dyn.expenditures.cum
 
-outputdir<-"../output/output_nino_policy"
-source("r_source_for_comparison.R")
-imp.dyn3<-imp.dyn
-source("r_sim_prices.R")
-sessions.prices3<-sessions.prices
-source("r_import_expenditures.R")
-source("r_aggregate_import_dynamics.R")
-imp.dyn.cum3<-imp.dyn.cum
-imp.dyn.expenditures.cum3<-imp.dyn.expenditures.cum
-
-source("r_compute_import_change_aggregate.R")
+source("r_compute_import_change_aggregate_2.R")
 
 
 
