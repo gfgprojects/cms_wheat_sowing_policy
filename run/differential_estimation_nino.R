@@ -34,7 +34,8 @@ original.input.demand.data<-read.csv("../rs_model/cms_wheat/data/data_2013_nino/
 
 #system("date |mutt -s 'differential evolution iniziato' g.giulioni@gmail.com,edidigiu@gmail.com")
 #system("date |mutt -s 'differential evolution iniziato' g.giulioni@gmail.com")
-source("differential01_function_nino.R")
+#source("differential01_function_nino.R")
+source("differential_estimation_nino_functions.R")
 #source("differential02_dati.R")
 
 #par1 = production change in 
@@ -54,8 +55,8 @@ minimi<-c(minpar01,minpar02,minpar03,minpar04)
 
 massimi<-c(maxpar01,maxpar02,maxpar03,maxpar04)
 
-if(T){
-soluzione<-DEoptim(valutazione,minimi,massimi,control = DEoptim.control(NP=40,itermax=5),fnMap=arrotoandamento)
+if(F){
+soluzione<-DEoptim(valutazione,minimi,massimi,control = DEoptim.control(NP=40,itermax=5),fnMap=arrotondamento)
 #NP=5
 
 system("date > stima.txt")
