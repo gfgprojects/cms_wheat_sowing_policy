@@ -33,7 +33,7 @@ system("cp ../rs_model/cms_wheat/data/data_2013_nina/buyers_Misc_tuned_1993_2016
 
 #system("date |mutt -s 'differential evolution iniziato' g.giulioni@gmail.com,edidigiu@gmail.com")
 #system("date |mutt -s 'differential evolution iniziato' g.giulioni@gmail.com")
-source("differential01_function.R")
+source("differential01_function_nina.R")
 #source("differential02_dati.R")
 
 #par1 = production change in 
@@ -49,8 +49,8 @@ minimi<-c(minpar01,minpar02)
 
 massimi<-c(maxpar01,maxpar02)
 
-if(F){
-soluzione<-DEoptim(valutazione,minimi,massimi,control = DEoptim.control(NP=5,itermax=2))
+if(T){
+soluzione<-DEoptim(valutazione,minimi,massimi,control = DEoptim.control(NP=20,itermax=5))
 #NP=5
 
 system("date > stima.txt")
